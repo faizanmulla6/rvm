@@ -60,9 +60,8 @@ tr:last-child td{border-bottom:none;}
 #whiteAreaBox .row:last-child{border-bottom:none;font-weight:800;color:var(--navy);}
 #whiteAreaBox .k{color:var(--muted);}
 .swatch{width:26px;height:26px;border-radius:5px;flex-shrink:0;border:1px solid #0002;}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+.actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:6px;}
 .actions button{padding:13px;border-radius:11px;border:none;font-weight:800;font-size:13.5px;cursor:pointer;}
-#waBtn{background:#25D366;color:#fff;}
 #pdfBtn{background:var(--navy);color:#fff;}
 .note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5;}
 footer{text-align:center;font-size:11px;color:var(--muted);margin-top:24px;padding:0 20px;}
@@ -357,7 +356,6 @@ table.rp-table tr.rp-total td{font-weight:800;background:#FFF3CC !important;bord
     </div>
 
     <div class="actions no-print">
-      <button id="waBtn" onclick="shareWhatsApp()">📲 Share via WhatsApp</button>
       <button id="pdfBtn" onclick="window.print()">📄 Download / Print PDF</button>
     </div>
   </div>
@@ -971,58 +969,6 @@ function renderPrintReport(){
     'Paint: 2 coats epoxy primer + 2 coats aliphatic PU top coat. 5-year guarantee on paint and vinyl.'
   ];
   document.getElementById('rpNotes').innerHTML = notes.map(n=>`<li>${n}</li>`).join('');
-}
-
-async function shareWhatsApp() {
-  if (!SPEC) return;
-
-  // 1. Check if the browser supports file sharing (mostly Mobile Safari/Chrome)
-  if (!navigator.canShare || !navigator.share) {
-    alert("Direct file sharing isn't supported on this browser (common on desktop). Please use 'Download PDF' and attach it manually.");
-    return;
-  }
-
-  // 2. Prepare the print container for the PDF generator
-  const printEl = document.getElementById('printReport');
-  printEl.style.display = 'block'; // Unhide temporarily for capture
-  
-  // Change button text to show loading state
-  const btn = document.getElementById('waBtn');
-  const originalText = btn.innerHTML;
-  btn.innerHTML = '⏳ Generating PDF...';
-
-  // 3. Configure PDF options
-  const opt = {
-    margin:       [14, 12],
-    filename:     `BPCL_RVM_Spec_${SPEC.regNo.replace(/\s+/g, '_')}.pdf`,
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 2, useCORS: true },
-    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
-
-  try {
-    // 4. Generate the PDF as a Blob (binary data)
-    const pdfBlob = await html2pdf().set(opt).from(printEl).output('blob');
-    const file = new File([pdfBlob], opt.filename, { type: 'application/pdf' });
-
-    // 5. Trigger the native Share menu
-    if (navigator.canShare({ files: [file] })) {
-      await navigator.share({
-        title: opt.filename,
-        text: `*BPCL RVM Spec — ${SPEC.make} ${SPEC.capacity}KL*\nReg No: ${SPEC.regNo}`,
-        files: [file]
-      });
-    } else {
-      alert("Your device doesn't support sharing this file type directly.");
-    }
-  } catch (err) {
-    console.error("PDF generation/sharing failed:", err);
-    alert("Failed to generate and share the PDF.");
-  } finally {
-    // 6. Restore UI
-    printEl.style.display = 'none';
-    btn.innerHTML = originalText;
-  }
 }
 </script>
 </body>

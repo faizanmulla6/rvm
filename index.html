@@ -268,7 +268,7 @@ table.rp-table tr.rp-total td{font-weight:800;background:#FFF3CC !important;bord
         <img src="Rear Side.png" alt="Rear Side Dimensions">
         <span class="dim-overlay ov-rear-width" style="top: 90%; left: 48%;">W: 2500mm</span>
         <span class="dim-overlay ov-rear-height" style="top: 33%; left: 6%;">H: 1550mm</span>
-        <span class="dim-overlay blue ov-rear-logo" style="top: 25%; left: 20%;">Logo: 650×765mm</span>
+        <span class="dim-overlay blue ov-rear-logo" style="top: 25%; left: 20%;">Logo: 550×765mm</span>
       </div>
       <div id="sideRear"></div>
     </div>
@@ -280,7 +280,7 @@ table.rp-table tr.rp-total td{font-weight:800;background:#FFF3CC !important;bord
         <img src="Left side helper side.png" alt="Left Side Dimensions">
         <span class="dim-overlay ov-left-length" style="top: 4%; left: 61%;">Tank L: 6170mm</span>
         <span class="dim-overlay ov-left-offset" style="top: 28%; left: 28%;">300mm</span>
-        <span class="dim-overlay blue ov-left-logo" style="top: 47%; left: 37%;">Logo: 650×765mm</span>
+        <span class="dim-overlay blue ov-left-logo" style="top: 47%; left: 37%;">Logo: 550×765mm</span>
         <span class="dim-overlay blue ov-left-b1" style="top: 23.5%; left: 52%;">B = 1500mm</span>
         <span class="dim-overlay blue ov-left-b2" style="top: 23.5%; left: 68%;">B = 1500mm</span>
         <span class="dim-overlay solid ov-left-h35" style="top: 21%; left: 82%;">35% (543mm)</span>
@@ -299,7 +299,7 @@ table.rp-table tr.rp-total td{font-weight:800;background:#FFF3CC !important;bord
         <img src="Right side driver side.png" alt="Right Side Dimensions">
         <span class="dim-overlay ov-right-length" style="top: 4%; left: 45%;">Tank L: 6170mm</span>
         <span class="dim-overlay ov-right-offset" style="top: 28%; left: 72%;">300mm</span>
-        <span class="dim-overlay blue ov-right-logo" style="top: 47%; left: 65%;">Logo: 650×765mm</span>
+        <span class="dim-overlay blue ov-right-logo" style="top: 47%; left: 65%;">Logo: 550×765mm</span>
         <span class="dim-overlay blue ov-right-b1" style="top: 23.5%; left: 32%;">B = 1350mm</span>
         <span class="dim-overlay blue ov-right-b2" style="top: 23.5%; left: 48%;">B = 1350mm</span>
         <span class="dim-overlay solid ov-right-h35" style="top: 21%; left: 18%;">35% (543mm)</span>
@@ -394,7 +394,7 @@ table.rp-table tr.rp-total td{font-weight:800;background:#FFF3CC !important;bord
         <img src="Rear Side.png" alt="Rear Side Dimensions">
         <span class="dim-overlay ov-rear-width" style="top: 90%; left: 48%;">W: 2500mm</span>
         <span class="dim-overlay ov-rear-height" style="top: 33%; left: 6%;">H: 1550mm</span>
-        <span class="dim-overlay blue ov-rear-logo" style="top: 25%; left: 20%;">Logo: 650×765mm</span>
+        <span class="dim-overlay blue ov-rear-logo" style="top: 25%; left: 20%;">Logo: 550×765mm</span>
       </div>
       <table class="rp-table" id="rpRear"></table>
     </div>
@@ -405,7 +405,7 @@ table.rp-table tr.rp-total td{font-weight:800;background:#FFF3CC !important;bord
         <img src="Left side helper side.png" alt="Left Side Dimensions">
         <span class="dim-overlay ov-left-length" style="top: 4%; left: 61%;">Tank L: 6170mm</span>
         <span class="dim-overlay ov-left-offset" style="top: 28%; left: 28%;">300mm</span>
-        <span class="dim-overlay blue ov-left-logo" style="top: 47%; left: 37%;">Logo: 650×765mm</span>
+        <span class="dim-overlay blue ov-left-logo" style="top: 47%; left: 37%;">Logo: 550×765mm</span>
         <span class="dim-overlay blue ov-left-b1" style="top: 23.5%; left: 52%;">B = 1500mm</span>
         <span class="dim-overlay blue ov-left-b2" style="top: 23.5%; left: 68%;">B = 1500mm</span>
         <span class="dim-overlay solid ov-left-h35" style="top: 21%; left: 82%;">35% (543mm)</span>
@@ -423,7 +423,7 @@ table.rp-table tr.rp-total td{font-weight:800;background:#FFF3CC !important;bord
         <img src="Right side driver side.png" alt="Right Side Dimensions">
         <span class="dim-overlay ov-right-length" style="top: 4%; left: 45%;">Tank L: 6170mm</span>
         <span class="dim-overlay ov-right-offset" style="top: 28%; left: 72%;">300mm</span>
-        <span class="dim-overlay blue ov-right-logo" style="top: 47%; left: 65%;">Logo: 650×765mm</span>
+        <span class="dim-overlay blue ov-right-logo" style="top: 47%; left: 65%;">Logo: 550×765mm</span>
         <span class="dim-overlay blue ov-right-b1" style="top: 23.5%; left: 32%;">B = 1350mm</span>
         <span class="dim-overlay blue ov-right-b2" style="top: 23.5%; left: 48%;">B = 1350mm</span>
         <span class="dim-overlay solid ov-right-h35" style="top: 21%; left: 18%;">35% (543mm)</span>
@@ -569,7 +569,7 @@ function calculate(){
   // BPCL Logo dimensions per circular table
   let tierLabel, logoBase, logoAlt=null;
   if(capacity>=22){ tierLabel='≥22 KL'; logoBase={w:644,h:900}; }
-  else if(capacity>=18){ tierLabel='18 to <22 KL'; logoBase={w:650,h:765}; }
+  else if(capacity>=18){ tierLabel='18 to <22 KL'; logoBase={w:550,h:765}; }
   else if(capacity>=12){ tierLabel='12 to <18 KL'; logoBase={w:550,h:765}; logoAlt={w:414,h:575}; }
   else { tierLabel='<12 KL'; logoBase={w:489,h:575}; }
 
